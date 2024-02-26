@@ -14,50 +14,56 @@ public class BalanceUtil {
         }
 
         int numOfPersons = persons.size();
-        
-        int balancedPaidInt = 0;
-        double balancedPaidDouble = 0.0;
 
-        boolean balanceIsDouble = true;
+        double averagePaid = totalPaid / numOfPersons;
 
-        if (totalPaid % numOfPersons != 0) {
-         
-            balancedPaidDouble = totalPaid / numOfPersons;
+        boolean averageIsDouble = true;
 
-        } else {
-            balancedPaidInt = (int) totalPaid / numOfPersons;
-            balanceIsDouble = false;
+        if (totalPaid % numOfPersons == 0) {
+            
+            averageIsDouble = false;
+
         }
 
         // System.out.println("totalPaid = " + totalPaid);
         // System.out.println("numOfPersons = " + numOfPersons);
         // System.out.println("balancePaid = " + balancedPaidDouble);
 
-
         ArrayList<Person> overpaid = new ArrayList<Person>();
         ArrayList<Person> underpaid = new ArrayList<Person>();
-
-        int transactionCount = 0;
         
-        if (balanceIsDouble) {
-        
-            for (Person p : persons) {
-        
-                if (p.getPaid() > balancedPaidDouble) {
-                    overpaid.add(p);
+        for (Person p : persons) {
                 
-                } else if (p.getPaid() < balancedPaidDouble) {
-                    underpaid.add(p);
-                }
+            if (p.getPaid() > averagePaid) {
+                overpaid.add(p);
+            
+            } else if (p.getPaid() < averagePaid) {
+                underpaid.add(p);
             }
             
-            for (Person under : underpaid) {
-            
-                for (Person over : overpaid) {
-                
-                    if (over.getPaid() > balancedPaidDouble && under.getPaid() < balancedPaidDouble) {
+        }
 
-                        over.overPaidByUnder(under, balancedPaidDouble);
+        int transactionCount = 0;
+
+        if (averageIsDouble) {
+            
+            // for (Person p : persons) {
+                
+            //     if (p.getPaid() > averagePaid) {
+            //         overpaid.add(p);
+                
+            //     } else if (p.getPaid() < averagePaid) {
+            //         underpaid.add(p);
+            //     }
+            // }
+            
+            for (Person over : overpaid) {
+                
+                for (Person under : underpaid) {
+                    
+                    if (over.getPaid() > averagePaid && under.getPaid() < averagePaid) {
+
+                        over.overPaidByUnder(under, averagePaid);
 
                         transactionCount++;
                     }
@@ -65,24 +71,26 @@ public class BalanceUtil {
             }
         } else {
             
-            for (Person p : persons) {
+            int averagePaidInt = (int) averagePaid;
+
+            // for (Person p : persons) {
             
-                if (p.getPaid() > balancedPaidInt) {
-                    overpaid.add(p);
+            //     if (p.getPaid() > averagePaidInt) {
+            //         overpaid.add(p);
             
-                } else if (p.getPaid() < balancedPaidInt) {
-                    underpaid.add(p);
-                }
-            }
+            //     } else if (p.getPaid() < averagePaidInt) {
+            //         underpaid.add(p);
+            //     }
+            // }
                 
-            
             for (Person over : overpaid) {
                 
                 for (Person under : underpaid) {
-                
-                    if (over.getPaid() > balancedPaidInt && under.getPaid() < balancedPaidInt) {
-                 
-                        over.overPaidByUnder(under, balancedPaidInt);
+                    
+                    if (over.getPaid() > averagePaidInt && under.getPaid() < averagePaidInt) {
+                        
+                        over.overPaidByUnder(under, averagePaidInt);
+                        
                         transactionCount++;
                     }
                 }
