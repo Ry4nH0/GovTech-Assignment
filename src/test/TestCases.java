@@ -6,7 +6,8 @@ import main.Person;
 import static main.BalanceUtil.*;
 
 public class TestCases {
-    
+
+        // Below are the test cases used to test the logic of the program
         public static void main(String[] args) {
         
             System.out.println("PROVIDED TEST CASES\n");

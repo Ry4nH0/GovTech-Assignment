@@ -4,6 +4,7 @@ import main.Person;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+// Unit Testing for the methods of the Person class inside src/main/Person.java
 public class PersonTest {
     
     // TEST CASES FOR WHEN AVERAGEPAID IS A DOUBLE
@@ -15,9 +16,9 @@ public class PersonTest {
         Person over = new Person("Bob", 60.70);
         
         double averagePaid = 44.80;
+        
         String expected = "Alice pays Bob $4.30.\n";
         String actual = over.overPaidByUnder(under, averagePaid);
-        // System.out.println(averagePaid);
         
         assertEquals(expected, actual);
     }
@@ -29,7 +30,7 @@ public class PersonTest {
         Person over = new Person("Bob", 112.30);
 
         double averagePaid = 81.60;
-        // System.out.println(averagePaid);
+        
         String expected = "Alice pays Bob $30.70.\n";
         String actual = over.overPaidByUnder(under, averagePaid);
 
@@ -43,7 +44,7 @@ public class PersonTest {
         Person over = new Person("Bob", 111.40);
 
         double averagePaid = 60.55;
-        // System.out.println(averagePaid);
+        
         String expected = "Alice pays Bob $50.85.\n";
         String actual = over.overPaidByUnder(under, averagePaid);
 
@@ -59,7 +60,7 @@ public class PersonTest {
         Person over = new Person("Bob", 60);
         
         int averagePaid = 45;
-        // System.out.println(averagePaid);
+        
         String expected = "Alice pays Bob $5.\n";
         String actual = over.overPaidByUnder(under, averagePaid);
         
@@ -73,7 +74,7 @@ public class PersonTest {
         Person over = new Person("Bob", 110);
 
         int averagePaid = 80;
-        // System.out.println(averagePaid);
+        
         String expected = "Alice pays Bob $30.\n";
         String actual = over.overPaidByUnder(under, averagePaid);
 
@@ -87,7 +88,7 @@ public class PersonTest {
         Person over = new Person("Bob", 110);
 
         int averagePaid = 60;
-        // System.out.println(averagePaid);
+        
         String expected = "Alice pays Bob $50.\n";
         String actual = over.overPaidByUnder(under, averagePaid);
 
