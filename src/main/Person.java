@@ -27,7 +27,7 @@ public class Person {
     }
 
 
-    public void overPaidByUnder(Person under, double averagePaid) {
+    public String overPaidByUnder(Person under, double averagePaid) {
 
         double payOver = this.getPaid() - averagePaid;
 
@@ -44,10 +44,11 @@ public class Person {
             under.setPaid(under.getPaid() + payOver);
         }
         
-        System.out.printf("%s pays %s $%.2f.\n", under.getName(), this.getName(), payOver);
+        // System.out.printf("%s pays %s $%.2f.\n", under.getName(), this.getName(), payOver);
+        return String.format("%s pays %s $%.2f.\n", under.getName(), this.getName(), payOver);
     }
         
-    public void overPaidByUnder(Person under, int averagePaid) {
+    public String overPaidByUnder(Person under, int averagePaid) {
 
         int payOver = (int) this.getPaid() - averagePaid;
         
@@ -65,8 +66,8 @@ public class Person {
             under.setPaid((int) under.getPaid() + payOver);
         }
         
-        System.out.printf("%s pays %s $%d.\n", under.getName(), this.getName(), payOver);
-
+        // System.out.printf("%s pays %s $%d.\n", under.getName(), this.getName(), payOver);
+        return String.format("%s pays %s $%d.\n", under.getName(), this.getName(), payOver);
     }
 
 }

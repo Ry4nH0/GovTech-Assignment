@@ -62,8 +62,9 @@ public class BalanceUtil {
                 for (Person under : underpaid) {
                     
                     if (over.getPaid() > averagePaid && under.getPaid() < averagePaid) {
-
-                        over.overPaidByUnder(under, averagePaid);
+                        
+                        System.out.print(over.overPaidByUnder(under, averagePaid));
+                        
 
                         transactionCount++;
                     }
@@ -89,7 +90,8 @@ public class BalanceUtil {
                     
                     if (over.getPaid() > averagePaidInt && under.getPaid() < averagePaidInt) {
                         
-                        over.overPaidByUnder(under, averagePaidInt);
+                        System.out.print(over.overPaidByUnder(under, averagePaidInt));
+                        
                         
                         transactionCount++;
                     }
